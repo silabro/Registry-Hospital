@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="07.08.2020T18:05:00" author="IlyaMikheev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SPECIALIZATION"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SPECIALIZATION">
+            <column name="SPECIALIZATION_NAME" type="TEXT">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true"/>
+            </column>
+            <column name="SPECIALIZATION_NAME" type="INT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
