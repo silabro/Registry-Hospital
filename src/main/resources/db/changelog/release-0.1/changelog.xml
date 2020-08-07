@@ -3,5 +3,12 @@
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
+    <include file="CITY_07082020.xml" relativeToChangelogFile="true"/>
+    <include file="DIRECTION_AND_HOSPITAL.xml" relativeToChangelogFile="true"/>
+    <include file="DOCTOR_07082020.xml" relativeToChangelogFile="true"/>
+    <include file="HOSPITAL_07082020.xml" relativeToChangelogFile="true"/>
+    <include file="MEDICAL_DIRECTION_07082020.xml" relativeToChangelogFile="true"/>
+    <include file="RECORD_07082020.xml" relativeToChangelogFile="true"/>
+    <include file="SPECIALIZATION_07082020.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
