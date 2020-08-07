@@ -16,7 +16,7 @@
                              nullable="false"
                              unique="true"/>
             </column>
-            <column name="SPECIALIZATION_NAME" type="TEXT">
+            <column name="SPECIALIZATION_ID" type="INT">
                 <constraints nullable="false"/>
             </column>
             <column name="DIRECTION_AND_HOSPITAL_ID" type="BIGINT">
@@ -52,12 +52,12 @@
             </not>
         </preConditions>
         <addForeignKeyConstraint baseTableName="DOCTOR"
-                                 baseColumnNames="SPECIALIZATION_NAME"
+                                 baseColumnNames="SPECIALIZATION_ID"
                                  constraintName="fk_specialization"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedTableName="SPECIALIZATION"
-                                 referencedColumnNames="SPECIALIZATION_NAME"/>
+                                 referencedColumnNames="SPECIALIZATION_ID"/>
     </changeSet>
     <changeSet id="07.08.2020T19:22:20" author="IlyaMikheev">
         <preConditions>
