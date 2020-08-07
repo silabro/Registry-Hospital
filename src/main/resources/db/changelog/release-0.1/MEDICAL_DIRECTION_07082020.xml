@@ -4,7 +4,7 @@
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
-    <changeSet id="07.08.2020T17:30:00" author="IlyaMikheev">
+    <changeSet id="07.08.2020T17:35:00" author="IlyaMikheev">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="MEDICAL_DIRECTION"/>
