@@ -11,18 +11,18 @@
             </not>
         </preConditions>
         <createTable tableName="HOSPITAL">
-            <column name="hospital_id" type="BIGINT" autoIncrement="true">
+            <column name="HOSPITAL_ID" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true"
                              nullable="false"
                              unique="true"/>
             </column>
-            <column name="CITY_NAME" type="TEXT">
+            <column name="CITY_ID" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="hospital_name" type="TEXT">
+            <column name="HOSPITAL_NAME" type="TEXT">
                 <constraints nullable="false"/>
             </column>
-            <column name="hospital_address" type="TEXT">
+            <column name="HOSPITAL_ADDRESS" type="TEXT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -34,11 +34,11 @@
             </not>
         </preConditions>
         <addForeignKeyConstraint baseTableName="HOSPITAL"
-                                 baseColumnNames="CITY_NAME"
+                                 baseColumnNames="CITY_ID"
                                  constraintName="fk_city"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedTableName="CITY"
-                                 referencedColumnNames="CITY_NAME"/>
+                                 referencedColumnNames="CITY_ID"/>
     </changeSet>
 </databaseChangeLog>
