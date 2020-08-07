@@ -11,12 +11,15 @@
             </not>
         </preConditions>
         <createTable tableName="SPECIALIZATION">
-            <column name="SPECIALIZATION_NAME" type="TEXT">
+            <column name="SPECIALIZATION_ID" type="INT">
                 <constraints primaryKey="true"
                              nullable="false"
                              unique="true"/>
             </column>
-            <column name="SPECIALIZATION_NAME" type="INT"/>
+            <column name="SPECIALIZATION_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DURATION_RECEPTION" type="INT"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
