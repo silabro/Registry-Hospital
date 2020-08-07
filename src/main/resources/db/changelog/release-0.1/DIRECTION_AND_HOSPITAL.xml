@@ -17,7 +17,7 @@
                              unique="true"/>
             </column>
             <column name="HOSPITAL_ID" type="BIGINT"/>
-            <column name="DIRECTION_NAME" type="TEXT"/>
+            <column name="DIRECTION_ID" type="INT"/>
         </createTable>
     </changeSet>
     <changeSet id="07.08.2020T17:45:00" author="IlyaMikheev">
@@ -32,7 +32,7 @@
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedTableName="HOSPITAL"
-                                 referencedColumnNames="hospital_id"/>
+                                 referencedColumnNames="HOSPITAL_ID"/>
     </changeSet>
     <changeSet id="07.08.2020T17:50:00" author="IlyaMikheev">
         <preConditions>
@@ -41,11 +41,11 @@
             </not>
         </preConditions>
         <addForeignKeyConstraint baseTableName="DIRECTION_AND_HOSPITAL"
-                                 baseColumnNames="DIRECTION_NAME"
+                                 baseColumnNames="DIRECTION_ID"
                                  constraintName="fk_direction"
                                  onDelete="CASCADE"
                                  onUpdate="RESTRICT"
                                  referencedTableName="MEDICAL_DIRECTION"
-                                 referencedColumnNames="direction_name"/>
+                                 referencedColumnNames="DIRECTION_ID"/>
     </changeSet>
 </databaseChangeLog>
