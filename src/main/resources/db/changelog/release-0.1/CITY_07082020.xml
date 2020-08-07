@@ -11,10 +11,13 @@
             </not>
         </preConditions>
         <createTable tableName="CITY">
-            <column name="CITY_NAME" type="TEXT">
+            <column name="CITY_ID" type="INT">
                 <constraints primaryKey="true"
                              nullable="false"
                              unique="true"/>
+            </column>
+            <column name="CITY_NAME" type="TEXT">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
