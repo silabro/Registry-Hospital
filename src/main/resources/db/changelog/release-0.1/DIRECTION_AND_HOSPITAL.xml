@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="07.08.2020T17:40:00" author="IlyaMikheev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="DIRECTION_AND_HOSPITAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="DIRECTION_AND_HOSPITAL">
+            <column name="DIRECTION_AND_HOSPITAL_ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true"/>
+            </column>
+            <column name="HOSPITAL_ID" type="BIGINT"/>
+            <column name="DIRECTION_ID" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="07.08.2020T17:45:00" author="IlyaMikheev">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_hospital"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="DIRECTION_AND_HOSPITAL"
+                                 baseColumnNames="HOSPITAL_ID"
+                                 constraintName="fk_hospital"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="HOSPITAL"
+                                 referencedColumnNames="HOSPITAL_ID"/>
+    </changeSet>
+    <changeSet id="07.08.2020T17:50:00" author="IlyaMikheev">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_direction"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="DIRECTION_AND_HOSPITAL"
+                                 baseColumnNames="DIRECTION_ID"
+                                 constraintName="fk_direction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="MEDICAL_DIRECTION"
+                                 referencedColumnNames="DIRECTION_ID"/>
+    </changeSet>
+</databaseChangeLog>

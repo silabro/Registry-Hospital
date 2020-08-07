@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="07.08.2020T17:30:00" author="IlyaMikheev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="HOSPITAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="HOSPITAL">
+            <column name="HOSPITAL_ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true"/>
+            </column>
+            <column name="CITY_ID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="HOSPITAL_ADDRESS" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="07.08.2020T17:31:30" author="IlyaMikheev">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_city"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="HOSPITAL"
+                                 baseColumnNames="CITY_ID"
+                                 constraintName="fk_city"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="CITY"
+                                 referencedColumnNames="CITY_ID"/>
+    </changeSet>
+</databaseChangeLog>
