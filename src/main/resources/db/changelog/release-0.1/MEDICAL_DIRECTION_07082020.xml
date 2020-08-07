@@ -11,7 +11,7 @@
             </not>
         </preConditions>
         <createTable tableName="MEDICAL_DIRECTION">
-            <column name="MEDICAL_DIRECTION_ID" type="INT">
+            <column name="DIRECTION_ID" type="INT" autoIncrement="true">
                 <constraints primaryKey="true"
                              nullable="false"
                              unique="true"/>
