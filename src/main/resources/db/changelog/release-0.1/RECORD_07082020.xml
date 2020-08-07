@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="07.08.2020T19:40:00" author="IlyaMikheev">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="RECORD"/>
+            </not>
+        </preConditions>
+        <createTable tableName="RECORD">
+            <column name="RECORD_ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true"
+                             nullable="false"
+                             unique="true"/>
+            </column>
+            <column name="DOCTOR_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="START_RECEPTION_TIME" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="END_RECEPTION_TIME" type="TIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_FREE_TIME" type="BOOLEAN" defaultValueBoolean="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RECORD_DATE" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_OMS_NUMBER" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_BIRTHDAY" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_PHONE_NUMBER" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_FIRST_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_MIDDLE_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PATIENT_LAST_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="07.08.2020T19:41:35" author="IlyaMikheev">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_doctor"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="RECORD"
+                                 baseColumnNames="DOCTOR_ID"
+                                 constraintName="fk_doctor"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="DOCTOR"
+                                 referencedColumnNames="DOCTOR_ID"/>
+    </changeSet>
+</databaseChangeLog>
