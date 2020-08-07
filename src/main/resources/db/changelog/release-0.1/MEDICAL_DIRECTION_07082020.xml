@@ -11,10 +11,13 @@
             </not>
         </preConditions>
         <createTable tableName="MEDICAL_DIRECTION">
-            <column name="direction_name" type="text">
+            <column name="MEDICAL_DIRECTION_ID" type="INT">
                 <constraints primaryKey="true"
                              nullable="false"
                              unique="true"/>
+            </column>
+            <column name="DIRECTION_NAME" type="text">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
