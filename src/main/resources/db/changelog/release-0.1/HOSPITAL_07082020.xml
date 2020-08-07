@@ -16,6 +16,9 @@
                              nullable="false"
                              unique="true"/>
             </column>
+            <column name="CITY_NAME" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
             <column name="hospital_name" type="TEXT">
                 <constraints nullable="false"/>
             </column>
@@ -23,5 +26,19 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+    <changeSet id="07.08.2020T17:31:30" author="IlyaMikheev">
+        <preConditions>
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="fk_city"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="HOSPITAL"
+                                 baseColumnNames="CITY_NAME"
+                                 constraintName="fk_city"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedTableName="CITY"
+                                 referencedColumnNames="CITY_NAME"/>
     </changeSet>
 </databaseChangeLog>
